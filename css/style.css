@@ -1,0 +1,220 @@
+
+/* for reducing motion if anything is tagged as animation https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion */
+@media (prefers-reduced-motion){
+    .annimation{
+        animation: dissolve 10s linear infinite both;
+        background-color: #373430;
+        text-decoration: overline;
+    }
+}
+/* For hidding skip to main feature unless in focus mode
+from W3 website https://www.w3schools.com/accessibility/accessibility_skip_links.php*/
+.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+  /* display skip to main when in focus mode */
+.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+* {
+    font-size: 1.2em;
+    margin: 0.5em;
+}
+
+  /* Make images and video easier to work with */
+img, video {
+    display: block;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #373430
+}
+
+
+header{
+    background-color: #373430;
+    color: #ffe2b7;
+}
+/* 
+nav{
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    grid-template-areas: "logo menus toggler";
+    /* grid-template-areas: auto; */
+    /* justify-items: stretch; */
+    /* align-items: stretch; */
+/* } */
+
+.menu{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr );
+    text-align: center;
+    margin: 1em;
+  }
+.menu  div{
+    padding: 0.5em;
+}
+.menu a{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 2.25em;
+    padding: 0.5em;
+  }
+
+h2{
+    font-size: 1.5em;
+    padding: 0.25em;
+    font-weight: bold;
+    text-align: center;
+    
+}
+h3{
+    font-size: 1.25em;
+    font-style: italic;
+}
+
+ul{
+    margin: 0.5em;
+    list-style-type: circle;
+}
+
+ol{
+    margin: 0.75em;
+    list-style-type: num;
+}
+
+body{
+    background-color: #ffffef;
+    color: #373430; 
+    padding: 0.25em;
+  }
+a{
+    color: #006060;;
+}
+/* inspired from https://www.bitdegree.org/learn/css-link-color */
+/* Make so not active link stays same color (even after clicked) */
+.menu a:link, .menu a:visited  {
+    color: #dcc6e0;
+    font-size: 1.25em;
+}
+a:link{
+    color: #006060;
+    /* font-style: italic; */
+}
+/* A link that is hovered on */
+a:hover, a:active, a:visited  {
+    color: #5d445d;
+}
+
+/* overide coloring */
+.menu .active a:visited, .menu .active a:link {
+    color: #373430;
+}
+.active{
+    /* sets color for underline */
+    color: #373430;
+	background: #ffffef;
+    text-transform: uppercase;
+    text-decoration: underline;
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+
+.active a{
+    /* changes actual text color */
+    color: #373430;
+}
+
+.photo_block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    gap: 1em;
+    border: 2px dashed #373430;
+}
+
+.tall{
+    grid-row: 1/3;
+    height: 100%;
+}
+
+
+/* From https://university.webflow.com  and  https://testsigma.com/blog/css-breakpoints/ 
+says common breakpoint for tablet is 768 px, so used 750px for wiggle room*/
+
+@media only screen and (min-width: 750px){
+    .skip:focus {
+        font-size: 200%;
+    }
+
+    .item{
+        display: flex;
+        flex-direction:row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-around;
+    }
+
+    .intro{
+        /* flex: 1; */
+        flex-basis: 30%;
+    }
+
+    .content{
+        /* flex: 2; */
+        flex-basis: 60%;
+    }
+
+    .gallery{
+        flex-basis: 60%;
+        order: 1;
+        align-self: end;
+    }
+
+    .outro{
+        flex-basis: 30%;
+        flex-wrap: wrap;
+    }
+
+    .sub_nav{
+        display: flex;
+        /* grid-template-columns: repeat(3, 1fr ); */
+        justify-content: space-around;
+        text-align: center;
+        margin: 0;
+        background-color: #373430;
+        color: #373430;
+      }
+    .sub_nav  div{
+        padding: 0.5em;
+        border: 4px solid #373430;
+        background-color: #ffffef;
+        border-radius: 0.6em;
+
+    }
+    .sub_nav a{
+        text-decoration: none;
+    }
+    .sub_nav a:link, .sub_nav a:visited  {
+        color: #373430;
+        font-size: 1.25em;
+    }
+}
+
+
+
