@@ -7,6 +7,20 @@
         text-decoration: overline;
     }
 }
+
+.rotate {
+    animation: rotating 2s ease 0s 1 normal forwards;
+  }
+  
+  @keyframes rotating {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 /* For hidding skip to main feature unless in focus mode
 from W3 website https://www.w3schools.com/accessibility/accessibility_skip_links.php*/
 .skip {
@@ -136,6 +150,31 @@ a:hover, a:active, a:visited  {
     color: #373430;
 }
 
+.sub_nav{
+    display: flex;
+    /* grid-template-columns: repeat(3, 1fr ); */
+    justify-content: space-around;
+    text-align: center;
+    margin: 0;
+    background-color: #373430;
+    color: #373430;
+  }
+.sub_nav  div{
+    padding: 0.5em;
+    border: 4px solid #373430;
+    background-color: #ffffef;
+    border-radius: 0.6em;
+
+}
+.sub_nav a{
+    text-decoration: none;
+}
+.sub_nav a:link, .sub_nav a:visited  {
+    color: #373430;
+    font-size: 1.25em;
+}
+
+
 .photo_block{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -192,29 +231,57 @@ says common breakpoint for tablet is 768 px, so used 750px for wiggle room*/
     }
 
     .sub_nav{
-        display: flex;
-        /* grid-template-columns: repeat(3, 1fr ); */
-        justify-content: space-around;
-        text-align: center;
-        margin: 0;
-        background-color: #373430;
-        color: #373430;
+        flex-direction: column;
       }
-    .sub_nav  div{
-        padding: 0.5em;
-        border: 4px solid #373430;
-        background-color: #ffffef;
-        border-radius: 0.6em;
 
-    }
-    .sub_nav a{
-        text-decoration: none;
-    }
-    .sub_nav a:link, .sub_nav a:visited  {
-        color: #373430;
-        font-size: 1.25em;
-    }
 }
 
+@media only screen and (min-width: 1150px){
+
+    .item{
+        /* flex-wrap: wrap; */
+        /* gap: 20px; */
+        /* justify-content: space-between;
+        align-content: space-between; */
+        display: grid; 
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .content{
+        /* grid-column-start: 2; */
+        grid-area: 1/2/span 2/ -1;
+    }
+
+    .outro{
+        grid-area: 2/1/span 1/span 1;
+    }
+
+    .gallery{
+        grid-area: 3/1/span 1/span 2;
+
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        /* grid-template-rows: 1; */
+
+    }
+
+    hr{
+        display: none;
+    }
+
+    .item{
+        border: 2px solid black;
+        padding: 20px 10px;
+    }
+
+    .sub_nav{
+        display: none;
+      }
+
+}
 
 
